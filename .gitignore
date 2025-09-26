@@ -129,6 +129,16 @@ models/*.pt
 logs/*.log
 config/local_config.json
 
+# Training results - exclude large model files but keep structure
+*_training_results/models/*.pt
+!*_training_results/models/.gitkeep
+
+# Debug and temporary files
+debug_model.py
+check_models.py
+*.tmp
+*.temp
+
 # IDE
 .vscode/
 .idea/

@@ -140,10 +140,10 @@ class TechnicalIndicators:
             df['atr'] = self.calculate_atr(df['high'], df['low'], df['close'], atr_period)
 
             # Calculate OBV
-            df['obv'] = self.calculate_obv(df['close'], df['volume_from'])
+            df['obv'] = self.calculate_obv(df['close'], df['volume'])
 
             # Fill NaN values with forward fill, then backward fill
-            df = df.fillna(method='ffill').fillna(method='bfill')
+            df = df.ffill().bfill()
 
             logger.info("Added all technical indicators to DataFrame")
             logger.info(f"DataFrame shape: {df.shape}")
