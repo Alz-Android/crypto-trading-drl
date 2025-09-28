@@ -29,7 +29,7 @@ class TrainingConfig:
     """Training configuration parameters"""
     # Data parameters
     CRYPTO_SYMBOL = 'SOL'  # Solana
-    DATA_FILE = '../crypto_data/SOL_6year_data.csv'
+    DATA_FILE = 'data/SOL_6year_data.csv'
     LOOKBACK_WINDOW = 100
     
     # Training parameters
@@ -50,7 +50,7 @@ class TrainingConfig:
     
     # Model saving
     MODEL_SAVE_FREQ = 50  # Save every N episodes
-    RESULTS_DIR = 'training_results'
+    RESULTS_DIR = 'full_training_results'
 
 class TrainingManager:
     """Manages the training process for the DRL agent"""
