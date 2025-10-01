@@ -11,14 +11,23 @@ This project implements a complete DRL-based cryptocurrency trading system based
 - **Technical Indicators** (RSI, ATR, OBV) for feature engineering
 - **Custom RL Environment** for cryptocurrency trading simulation
 
-## 🚀 Features
+## 🔥 Features
 
+### Core DRL Trading Features
 - **Real-time Data Acquisition**: Fetches hourly cryptocurrency data from CryptoCompare API
 - **Technical Analysis**: Calculates RSI, ATR, and OBV indicators
 - **Reinforcement Learning Environment**: Custom Gym environment with Buy/Hold/Sell actions
 - **Deep Neural Networks**: CNN-LSTM architecture for both actor and critic networks
 - **PPO Implementation**: Complete PPO algorithm with clipping and Generalized Advantage Estimation
 - **Risk Management**: Transaction fees, position sizing, and portfolio tracking
+
+### 🎩 **Shared Architecture Benefits**
+- **✨ Zero Code Duplication**: Single codebase serves all cryptocurrencies
+- **🔄 Easy Maintenance**: Updates to core modules benefit all systems
+- **📈 Consistent Performance**: Same robust algorithms across all assets
+- **⚡ Rapid Deployment**: Add new cryptocurrencies in minutes
+- **📊 Standardized APIs**: Uniform interface for all trading operations
+- **🧪 Easy Testing**: Single test suite validates all systems
 
 ## 🏗️ Architecture
 
@@ -121,36 +130,50 @@ agent = PPOAgent()
 
 ## 📁 Project Structure
 
-This project is organized into separate directories for each cryptocurrency system:
+This project features a **shared codebase architecture** with cryptocurrency-specific directories:
 
 ```
 crypto-trading-drl/
+├── src/                         # 🔥 SHARED CORE MODULES
+│   ├── data_fetcher.py           # Data acquisition from APIs
+│   ├── technical_indicators.py   # RSI, ATR, OBV calculations  
+│   ├── trading_env.py            # Custom RL environment
+│   ├── neural_networks.py        # CNN-LSTM networks and PPO
+│   └── __init__.py              # Package initialization
 ├── crypto-trading-drl-btc/      # Bitcoin DRL Trading System
-│   ├── src/                     # Core Bitcoin trading modules
-│   ├── data/                    # Bitcoin market data
-│   ├── results/                 # Training results and models
-│   ├── train_bitcoin.py         # Bitcoin training script
+│   ├── data/                     # Bitcoin market data
+│   ├── results/                  # Training results and models
+│   ├── train_bitcoin_agent.py    # Bitcoin training script
 │   ├── BTC_TRAINING_COMPLETION_REPORT.md
 │   └── STATUS_SUMMARY.md
 ├── crypto-trading-drl-sol/      # Solana DRL Trading System
-│   ├── src/                     # Core Solana trading modules
-│   ├── data/                    # Solana market data
-│   ├── full_training_results/   # Complete training results
-│   ├── fast_training_results/   # Quick training results
-│   ├── train_solana_*.py        # Various Solana training modes
-│   ├── SOL_README.md            # Solana-specific documentation
-│   └── SOL_requirements.txt     # Solana dependencies
+│   ├── data/                     # Solana market data
+│   ├── full_training_results/    # Complete training results
+│   ├── fast_training_results/    # Quick training results
+│   ├── train_solana_*.py         # Various Solana training modes
+│   ├── SOL_README.md             # Solana-specific documentation
+│   └── SOL_requirements.txt      # Solana dependencies
 ├── crypto-trading-drl-eth/      # Ethereum DRL Trading System
-│   ├── src/                     # Core Ethereum trading modules
-│   ├── data/                    # Ethereum market data
-│   ├── full_training_results/   # Training results and plots
-│   ├── train_ethereum_agent.py  # Ethereum training script
-│   ├── ETH_README.md            # Ethereum-specific documentation
-│   └── ETH_requirements.txt     # Ethereum dependencies
+│   ├── data/                     # Ethereum market data
+│   ├── full_training_results/    # Training results and plots
+│   ├── train_ethereum_agent.py   # Ethereum training script
+│   ├── ETH_README.md             # Ethereum-specific documentation
+│   └── ETH_requirements.txt      # Ethereum dependencies
 ├── requirements.txt             # Global dependencies
+├── test_shared_src.py           # Shared modules test script
 ├── .gitignore                   # Git ignore rules
 └── README.md                    # This file
 ```
+
+### 🔥 **Shared Codebase Architecture**
+
+**Key Innovation**: All cryptocurrency systems share the same core modules, eliminating code duplication!
+
+- **`src/`**: Single source of truth for all core trading functionality
+- **DataFetcher**: Unified data acquisition across all cryptocurrencies
+- **TradingEnvironment**: Consistent RL environment for all assets
+- **PPOAgent**: Standardized neural network architecture
+- **TechnicalIndicators**: Common technical analysis tools
 
 ### Cryptocurrency-Specific Systems
 
@@ -159,11 +182,10 @@ crypto-trading-drl/
 - **Ethereum (ETH)**: Complete system with backtesting and performance analysis
 
 Each cryptocurrency system contains:
-- Independent source code modules
-- Dedicated training scripts
-- Specific market data
-- Training results and performance metrics
+- Independent training scripts that import from shared `src/`
+- Dedicated market data and results
 - Cryptocurrency-specific documentation and requirements
+- Training results and performance metrics
 
 ## 🔧 Configuration
 
