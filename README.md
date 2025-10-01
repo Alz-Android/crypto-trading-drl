@@ -46,15 +46,26 @@ CryptoCompare API → RSI/ATR/OBV → Buy/Hold/Sell → CNN-LSTM → Buy/Sell/Ho
 - **Algorithm**: PPO with ε=0.2 clipping
 - **Transaction Fees**: 0.1%
 
-## 🛠️ Installation
+## 🛠️ Installation & Setup
 
-1. **Clone the repository**:
+### 1. **Clone the repository**:
 ```bash
-git clone https://github.com/your-username/crypto-trading-drl.git
+git clone https://github.com/Alz-Android/crypto-trading-drl.git
 cd crypto-trading-drl
 ```
 
-2. **Create virtual environment**:
+### 2. **Set up development environment**:
+```bash
+# Run the automated setup script
+python setup_dev_env.py
+```
+This script will:
+- ✅ Configure VSCode settings for proper import resolution
+- ✅ Test all shared module imports
+- ✅ Fix "could not be resolved" linting errors
+- ✅ Set up Python path configuration
+
+### 3. **Create virtual environment** (recommended):
 ```bash
 python -m venv venv
 # On Windows:
@@ -63,9 +74,18 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-3. **Install dependencies**:
+### 4. **Install dependencies**:
 ```bash
 pip install -r requirements.txt
+```
+
+### 5. **Verify installation**:
+```bash
+# Test shared architecture
+python test_shared_src.py
+
+# Test training script imports  
+python test_training_imports.py
 ```
 
 ## 📈 Usage
