@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "crypto-trading-drl"
+version = "1.0.0"
+description = "Deep Reinforcement Learning Cryptocurrency Trading System"
+authors = [
+    {name = "Alz-Android", email = "your.email@example.com"}
+]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "torch>=1.9.0",
+    "numpy>=1.21.0",
+    "pandas>=1.3.0",
+    "matplotlib>=3.4.0",
+    "gym>=0.21.0",
+    "requests>=2.25.0",
+    "scikit-learn>=1.0.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/Alz-Android/crypto-trading-drl"
+Repository = "https://github.com/Alz-Android/crypto-trading-drl.git"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "crypto-trading-drl-*"]
+
+[tool.setuptools.package-dir]
+"" = "."
+
+# Configure path for imports
+[tool.pyright]
+extraPaths = ["src"]
+include = ["src", "crypto-trading-drl-btc", "crypto-trading-drl-eth", "crypto-trading-drl-sol"]
+typeCheckingMode = "basic"
+
+[tool.pylint]
+init-hook = 'import sys; sys.path.append("src")'
