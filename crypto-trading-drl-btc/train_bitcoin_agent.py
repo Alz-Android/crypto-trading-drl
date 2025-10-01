@@ -9,8 +9,8 @@ import logging
 import warnings
 warnings.filterwarnings('ignore')
 
-# Add src directory to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+# Add main src directory to path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
 from data_fetcher import DataFetcher
 from trading_env import TradingEnvironment
@@ -39,10 +39,7 @@ def setup_training_environment():
     logger.info("Fetching Bitcoin historical data (6 years)...")
     
     # Fetch 6 years of daily data for comprehensive training
-    btc_data = data_fetcher.fetch_daily_data(
-        symbol='BTC',
-        days=2190  # ~6 years
-    )
+    btc_data = data_fetcher.get_multiple_days('BTC', 'USD', days=2190)  # ~6 years
     
     if btc_data is None or len(btc_data) < 100:
         raise ValueError("Insufficient Bitcoin data for training")

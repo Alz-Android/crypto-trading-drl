@@ -14,12 +14,12 @@ import logging
 from datetime import datetime
 import json
 
-# Add src to path
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+# Add main src to path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'src'))
 
-from src.technical_indicators import TechnicalIndicators
-from src.trading_env import CryptoTradingEnv
-from src.neural_networks import PPOAgent
+from technical_indicators import TechnicalIndicators
+from trading_env import CryptoTradingEnv
+from neural_networks import PPOAgent
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
